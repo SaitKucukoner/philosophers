@@ -8,25 +8,33 @@ This project is an implementation of the classic "Dining Philosophers Problem" d
 ## Instructions
 
 ### Installation
-	For installation;
 
-	git clone https://github.com/SaitKucukoner/philosophers.git 
-	---------------------------|or|----------------------------
-	git clone git@github.com:SaitKucukoner/philosophers.git
+	Clone the repository:
+
+	git clone <repository_url>
+
+	cd philosophers
 
 ### Compilation
 	To compile the project, navigate to the project root directory and use the provided Makefile.
-	make (compile project)
-	make fclean (clean complied files)
+
+	make
+	make clean
+	make fclean
+	make re
 
 ### Execution
 	Run the executable with the following arguments:
 	./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
 
+	Example; ./philo 5 800 200 200
+
 ## Resources
 
     https://medium.com/@ruinadd/philosophers-42-guide-the-dining-philosophers-problem-893a24bc0fe2
     https://www.geeksforgeeks.org/operating-systems/posix-threads-in-os/
+	https://man7.org/linux/man-pages/man7/pthreads.7.html
+	https://man7.org/linux/man-pages/man3/pthread_mutex_lock.3p.html
 
 ## AI Usage Disclosure
 
