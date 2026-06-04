@@ -34,14 +34,14 @@ int	init_data(t_data *data, int argc, char **argv)
 int	init_forks(t_data *data)
 {
 	size_t	i;
-	size_t	tmp;
+	size_t	number_of_philo;
 
 	i = 0;
-	tmp = data->number_of_philosophers;
-	data->mutex_fork = malloc(sizeof(pthread_mutex_t) * tmp);
+	number_of_philo = data->number_of_philosophers;
+	data->mutex_fork = malloc(sizeof(pthread_mutex_t) * number_of_philo);
 	if (!data->mutex_fork)
 		return (1);
-	while (i < tmp)
+	while (i < number_of_philo)
 	{
 		pthread_mutex_init(&data->mutex_fork[i], NULL);
 		i++;
@@ -52,14 +52,12 @@ int	init_forks(t_data *data)
 int	init_philosophers(t_data *data)
 {
 	size_t	i;
-	size_t	tmp;
 
 	i = 0;
-	tmp = data->number_of_philosophers;
-	data->philos = malloc(sizeof(t_philo) * tmp);
+	data->philos = malloc(sizeof(t_philo) * data->number_of_philosophers);
 	if (!data->philos)
 		return (1);
-	while (i < tmp)
+	while (i < data->number_of_philosophers)
 	{
 		data->philos[i].id = i + 1;
 		data->philos[i].number_of_eaten_meals = 0;
@@ -67,7 +65,8 @@ int	init_philosophers(t_data *data)
 		data->philos[i].data = data;
 		pthread_mutex_init(&data->philos[i].mutex_meal, NULL);
 		data->philos[i].left_fork = &data->mutex_fork[i];
-		data->philos[i].right_fork = &data->mutex_fork[(i + 1) % tmp];
+		data->philos[i].right_fork = &data->mutex_fork[(i + 1)
+			% data->number_of_philosophers];
 		i++;
 	}
 	return (0);
