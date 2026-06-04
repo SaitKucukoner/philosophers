@@ -8,9 +8,11 @@ This project is an implementation of the classic "Dining Philosophers Problem" d
 ## Instructions
 
 ### Installation
-	For installation
-	```bash
-	1- git clone https://github.com/SaitKucukoner/philosophers.git 
+	For installation;
+
+	git clone https://github.com/SaitKucukoner/philosophers.git 
+	---------------------------|or|----------------------------
+	git clone git@github.com:SaitKucukoner/philosophers.git
 
 ### Compilation
 	To compile the project, navigate to the project root directory and use the provided Makefile.
